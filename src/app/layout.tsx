@@ -1,0 +1,47 @@
+import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import "./globals.css";
+import { Navbar } from "@/components/Navbar";
+import { CursorCat } from "@/components/CursorCat";
+import SmoothScroll from "@/components/SmoothScroll";
+import { Providers } from "./providers";
+
+const font = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ['300', '400', '500', '600', '700', '800'] });
+
+export const metadata: Metadata = {
+  title: "Kampit Ojha | Engineer & Builder",
+  description: "Portfolio of Kampit Ojha",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${font.className} min-h-screen bg-background text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 selection:text-indigo-200 antialiased transition-colors duration-300`}>
+         <Providers>
+            <SmoothScroll>
+                <div className="fixed inset-0 bg-grid z-[-1] pointer-events-none opacity-40 dark:opacity-40 opacity-20"></div>
+                <CursorCat />
+                <Navbar />
+                <main className="flex-grow">
+                    {children}
+                </main>
+                <footer className="py-12 border-t border-slate-200 dark:border-white/5 bg-white/50 dark:bg-black/20 backdrop-blur-sm transition-colors duration-300">
+                    <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+                        <p>© 2024 Kampit Ojha.</p>
+                        <div className="flex gap-6 mt-4 md:mt-0 font-medium">
+                            <a href="#" className="hover:text-black dark:hover:text-white transition-colors">Twitter</a>
+                            <a href="#" className="hover:text-black dark:hover:text-white transition-colors">GitHub</a>
+                            <a href="#" className="hover:text-black dark:hover:text-white transition-colors">LinkedIn</a>
+                        </div>
+                    </div>
+                </footer>
+            </SmoothScroll>
+         </Providers>
+      </body>
+    </html>
+  );
+}
