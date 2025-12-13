@@ -3,7 +3,9 @@ import { Project, Skill, NavItem, BlogPost } from '@/types';
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', path: '/' },
   { label: 'Work', path: '/work' },
-  { label: 'Notes', path: '/notes' },
+  { label: 'Blogs', path: '/blogs' },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'Whiteboard', path: '/whiteboard' },
 ];
 
 export const SKILLS_DATA: Skill[] = [

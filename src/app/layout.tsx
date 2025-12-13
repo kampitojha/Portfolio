@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
-import { CursorCat } from "@/components/CursorCat";
 import SmoothScroll from "@/components/SmoothScroll";
 import { Providers } from "./providers";
+import { LiveStatus } from "@/components/LiveStatus";
+import { ChatBot } from "@/components/ChatBot";
 
 const font = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ['300', '400', '500', '600', '700', '800'] });
 
 export const metadata: Metadata = {
-  title: "Kampit Ojha | Engineer & Builder",
+  title: "Kampit Ojha",
   description: "Portfolio of Kampit Ojha",
 };
 
@@ -24,7 +25,6 @@ export default function RootLayout({
          <Providers>
             <SmoothScroll>
                 <div className="fixed inset-0 bg-grid z-[-1] pointer-events-none opacity-40 dark:opacity-40 opacity-20"></div>
-                <CursorCat />
                 <Navbar />
                 <main className="flex-grow">
                     {children}
@@ -39,6 +39,8 @@ export default function RootLayout({
                         </div>
                     </div>
                 </footer>
+                <LiveStatus />
+                <ChatBot />
             </SmoothScroll>
          </Providers>
       </body>

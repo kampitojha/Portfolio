@@ -6,6 +6,8 @@ import { HERO_TEXT } from '@/lib/constants';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { MatrixBackground } from './MatrixBackground';
+import { NetworkGraph } from './NetworkGraph';
 
 export const Hero: React.FC = () => {
   const container = useRef<HTMLDivElement>(null);
@@ -16,61 +18,39 @@ export const Hero: React.FC = () => {
   useGSAP(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
       
-      tl.from(".hero-badge", {
-          y: -20,
-          opacity: 0,
-          duration: 0.8,
-          delay: 0.2
-      })
-      .from(".hero-char", {
-          y: 100,
-          opacity: 0,
-          rotateX: -90,
-          stagger: 0.05,
-          duration: 1
-      }, "-=0.4")
-      .from(".hero-sub", {
-          y: 30,
-          opacity: 0,
-          duration: 0.8
-      }, "-=0.6")
-      .from(".hero-btn", {
-          y: 20,
-          opacity: 0,
-          stagger: 0.1,
-          duration: 0.6
-      }, "-=0.4");
+      tl.from(".hero-badge", { y: -20, opacity: 0, duration: 0.8, delay: 0.2 })
+        .from(".hero-row", { y: 50, opacity: 0, stagger: 0.1, duration: 1 }, "-=0.4")
+        .from(".hero-sub", { y: 30, opacity: 0, duration: 0.8 }, "-=0.6")
+        .from(".hero-btn", { y: 20, opacity: 0, stagger: 0.1, duration: 0.6 }, "-=0.4");
       
-     // Magnetic effect for buttons
+     // Magnetic effect
      const buttons = document.querySelectorAll('.hero-btn');
      buttons.forEach((btn) => {
          btn.addEventListener('mousemove', (e: any) => {
              const rect = btn.getBoundingClientRect();
-             // Check if element is still in DOM to avoid errors
              if (!rect) return;
              const x = e.clientX - rect.left - rect.width / 2;
              const y = e.clientY - rect.top - rect.height / 2;
-             gsap.to(btn, {
-                 x: x * 0.2,
-                 y: y * 0.2,
-                 duration: 0.3
-             });
+             gsap.to(btn, { x: x * 0.2, y: y * 0.2, duration: 0.3 });
          });
          btn.addEventListener('mouseleave', () => {
              gsap.to(btn, { x: 0, y: 0, duration: 0.3 });
          });
      });
-
   }, { scope: container });
 
   return (
     <section ref={container} id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
       
-      <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-indigo-600/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-purple-600/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000" />
+      <MatrixBackground />
+
+      {/* Blobs - Reduced opacity */}
+      <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-indigo-600/10 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-purple-600/10 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
         
+        {/* Left: Text Content */}
         <div className="text-left space-y-8 perspective-1000">
             <div className="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-500 dark:text-indigo-300 text-sm font-bold tracking-wide backdrop-blur-md">
                 <span className="relative flex h-2 w-2">
@@ -80,24 +60,15 @@ export const Hero: React.FC = () => {
                 Available for Hire
             </div>
             
-            <div className="space-y-0 relative">
-                 {/* Main Title Layer */}
-                 <h1 className="flex flex-wrap text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-slate-900 dark:text-white leading-[0.9]">
-                    {/* KAMPIT */}
-                    <div className="flex overflow-hidden">
-                        {"KAMPIT".split("").map((char, i) => (
-                            <span key={`first-${i}`} className="hero-char inline-block">{char}</span>
-                        ))}
-                    </div>
-                 </h1>
-                 <h1 className="flex flex-wrap text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 dark:from-indigo-400 dark:via-purple-400 dark:to-cyan-400 leading-[0.9]">
-                    <div className="flex overflow-hidden">
-                        {"OJHA".split("").map((char, i) => (
-                            <span key={`last-${i}`} className="hero-char inline-block">{char}</span>
-                        ))}
-                         <span className="hero-char inline-block text-slate-900 dark:text-white">.</span>
-                    </div>
-                </h1>
+            <div className="space-y-2 relative z-20">
+                 {/* Name - Interactive Letters (Rubberband Effect) */}
+                 <div className="hero-row flex flex-wrap gap-x-4 text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]">
+                    <Word text="KAMPIT" className="text-slate-900 dark:text-white" />
+                 </div>
+                 
+                 <div className="hero-row flex flex-wrap gap-x-4 text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]">
+                    <Word text="OJHA" className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 dark:from-indigo-400 dark:via-purple-400 dark:to-cyan-400" />
+                 </div>
             </div>
             
             <p className="hero-sub max-w-xl text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light leading-relaxed border-l-4 border-indigo-500/50 pl-6">
@@ -125,23 +96,28 @@ export const Hero: React.FC = () => {
             </div>
         </div>
 
+        {/* Right: Network Graph + Floating Cards */}
         <motion.div style={{ y: y2 }} className="hidden lg:block relative h-[600px] w-full pointer-events-none">
+            <div className="absolute inset-0 z-0 opacity-70 pointer-events-auto">
+                <NetworkGraph />
+            </div>
+
             <FloatingCard 
                 icon={<Code2 size={40} className="text-cyan-500 dark:text-cyan-400" />} 
                 label="Clean Code" 
-                className="top-20 right-20 bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl border-slate-200 dark:border-white/10" 
+                className="top-20 right-20 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border-slate-200 dark:border-white/10 z-10" 
                 delay={0}
             />
             <FloatingCard 
                 icon={<Cpu size={40} className="text-indigo-500 dark:text-indigo-400" />} 
                 label="System Arch" 
-                className="top-1/2 left-10 bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl border-slate-200 dark:border-white/10" 
+                className="top-1/2 left-10 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border-slate-200 dark:border-white/10 z-10" 
                 delay={1.5}
             />
             <FloatingCard 
                 icon={<Globe size={40} className="text-purple-500 dark:text-purple-400" />} 
                 label="Global Scale" 
-                className="bottom-20 right-1/3 bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl border-slate-200 dark:border-white/10" 
+                className="bottom-20 right-1/3 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border-slate-200 dark:border-white/10 z-10" 
                 delay={0.8}
             />
         </motion.div>
@@ -158,6 +134,29 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
+
+const Word = ({ text, className }: { text: string, className?: string }) => (
+    <div className={`flex ${className}`}>
+        {text.split("").map((char, i) => (
+            <RubberChar key={i} char={char} />
+        ))}
+    </div>
+)
+
+const RubberChar = ({ char }: { char: string }) => {
+    return (
+        <motion.span 
+            className="inline-block cursor-default hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
+            whileHover={{ 
+                scale: [1, 1.4, 0.75, 1.25, 0.9, 1],
+                rotate: [0, 10, -10, 0],
+                transition: { duration: 0.6 }
+            }}
+        >
+            {char}
+        </motion.span>
+    )
+}
 
 const SocialButton = ({ icon, href, label }: { icon: React.ReactNode, href: string, label: string }) => (
   <a 
