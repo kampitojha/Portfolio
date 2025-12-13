@@ -134,7 +134,7 @@ export const NetworkGraph: React.FC = () => {
     <div ref={containerRef} className="w-full h-full relative">
         <canvas ref={canvasRef} className="block" />
         {/* Glow effect overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-background to-transparent pointer-events-none" />
     </div>
   );
 };

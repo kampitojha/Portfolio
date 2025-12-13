@@ -6,8 +6,17 @@ import { HERO_TEXT } from '@/lib/constants';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { MatrixBackground } from './MatrixBackground';
-import { NetworkGraph } from './NetworkGraph';
+import dynamic from 'next/dynamic';
+
+// Dynamic imports for heavy canvas components to unclog main thread
+const MatrixBackground = dynamic(() => import('./MatrixBackground').then(mod => mod.MatrixBackground), { 
+    ssr: false,
+    loading: () => <div className="fixed inset-0 bg-slate-950/20" /> 
+});
+const NetworkGraph = dynamic(() => import('./NetworkGraph').then(mod => mod.NetworkGraph), { 
+    ssr: false,
+    loading: () => <div className="absolute inset-0" />
+});
 
 export const Hero: React.FC = () => {
   const container = useRef<HTMLDivElement>(null);
@@ -44,9 +53,9 @@ export const Hero: React.FC = () => {
       
       <MatrixBackground />
 
-      {/* Blobs - Reduced opacity */}
-      <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-indigo-600/10 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-purple-600/10 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000" />
+      {/* Blobs - Reduced opacity and optimized with will-change */}
+      <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-indigo-600/10 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob will-change-transform" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-purple-600/10 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000 will-change-transform" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
         
@@ -61,13 +70,13 @@ export const Hero: React.FC = () => {
             </div>
             
             <div className="space-y-2 relative z-20">
-                 {/* Name - Interactive Letters (Rubberband Effect) */}
+                 {/* Name - Static Text */}
                  <div className="hero-row flex flex-wrap gap-x-4 text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]">
-                    <Word text="KAMPIT" className="text-slate-900 dark:text-white" />
+                    <span className="text-slate-900 dark:text-white">KAMPIT</span>
                  </div>
                  
                  <div className="hero-row flex flex-wrap gap-x-4 text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]">
-                    <Word text="OJHA" className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 dark:from-indigo-400 dark:via-purple-400 dark:to-cyan-400" />
+                    <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-500 via-purple-500 to-cyan-500 dark:from-indigo-400 dark:via-purple-400 dark:to-cyan-400">OJHA</span>
                  </div>
             </div>
             
@@ -135,28 +144,7 @@ export const Hero: React.FC = () => {
   );
 };
 
-const Word = ({ text, className }: { text: string, className?: string }) => (
-    <div className={`flex ${className}`}>
-        {text.split("").map((char, i) => (
-            <RubberChar key={i} char={char} />
-        ))}
-    </div>
-)
 
-const RubberChar = ({ char }: { char: string }) => {
-    return (
-        <motion.span 
-            className="inline-block cursor-default hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
-            whileHover={{ 
-                scale: [1, 1.4, 0.75, 1.25, 0.9, 1],
-                rotate: [0, 10, -10, 0],
-                transition: { duration: 0.6 }
-            }}
-        >
-            {char}
-        </motion.span>
-    )
-}
 
 const SocialButton = ({ icon, href, label }: { icon: React.ReactNode, href: string, label: string }) => (
   <a 

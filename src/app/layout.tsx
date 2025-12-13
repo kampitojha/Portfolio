@@ -7,6 +7,7 @@ import { Providers } from "./providers";
 import { LiveStatus } from "@/components/LiveStatus";
 import { ChatBot } from "@/components/ChatBot";
 
+
 const font = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ['300', '400', '500', '600', '700', '800'] });
 
 export const metadata: Metadata = {
@@ -24,9 +25,9 @@ export default function RootLayout({
       <body className={`${font.className} min-h-screen bg-background text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 selection:text-indigo-200 antialiased transition-colors duration-300`}>
          <Providers>
             <SmoothScroll>
-                <div className="fixed inset-0 bg-grid z-[-1] pointer-events-none opacity-40 dark:opacity-40 opacity-20"></div>
+                <div className="fixed inset-0 bg-grid z-[-1] pointer-events-none opacity-20 dark:opacity-40"></div>
                 <Navbar />
-                <main className="flex-grow">
+                <main className="grow">
                     {children}
                 </main>
                 <footer className="py-12 border-t border-slate-200 dark:border-white/5 bg-white/50 dark:bg-black/20 backdrop-blur-sm transition-colors duration-300">

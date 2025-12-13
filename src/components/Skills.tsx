@@ -15,7 +15,7 @@ export const Skills: React.FC = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight"
                 >
-                    Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Arsenal</span>
+                    Technical <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-500 to-purple-500 dark:from-indigo-400 dark:to-purple-400">Arsenal</span>
                 </motion.h2>
                 <motion.p 
                     initial={{ opacity: 0 }}
@@ -61,7 +61,7 @@ export const Skills: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="w-full max-w-[400px] md:max-w-[450px] aspect-square relative group mx-auto xl:mx-0"
         >
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 to-slate-900/40 backdrop-blur-md rounded-full border border-white/10 shadow-2xl flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 bg-linear-to-br from-slate-900/90 to-slate-900/40 backdrop-blur-md rounded-full border border-white/10 shadow-2xl flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0 bg-[linear-gradient(transparent_0%,rgba(99,102,241,0.1)_50%,transparent_100%)] animate-scan pointer-events-none h-[200%] w-full -translate-y-1/2" />
                 <div className="absolute inset-4 border border-indigo-500/20 rounded-full animate-[spin_10s_linear_infinite]" />
                 <div className="absolute inset-10 border border-dashed border-cyan-500/20 rounded-full animate-[spin_15s_linear_infinite_reverse]" />

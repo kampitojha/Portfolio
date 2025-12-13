@@ -33,7 +33,7 @@ export const GithubStats: React.FC = () => {
     return (
         <div className="w-full flex flex-col xl:flex-row gap-6">
             <div className="w-full xl:w-1/3 bg-white/60 dark:bg-[#0a0a0a]/40 rounded-3xl p-6 border border-slate-200 dark:border-white/5 shadow-xl relative group overflow-hidden hover:border-indigo-500/30 transition-all duration-500 backdrop-blur-md">
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-linear-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
                     <div className="flex items-center gap-4 mb-6">
                     <div className="p-2.5 bg-indigo-500/20 rounded-xl text-indigo-500 dark:text-indigo-400">

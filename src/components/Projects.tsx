@@ -23,7 +23,7 @@ export const Projects: React.FC<ProjectsProps> = ({ limit, showTitle = true }) =
                 whileInView={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-5xl font-black text-white mb-6"
             >
-                Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Works</span>
+                Selected <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-500 to-cyan-500 dark:from-indigo-400 dark:to-cyan-400">Works</span>
             </motion.h2>
         </div>
       )}
@@ -63,7 +63,7 @@ const ProjectCard = ({ project, colSpan }: { project: Project, colSpan: string }
       viewport={{ once: true, margin: "-50px" }}
       className={`group relative rounded-3xl overflow-hidden bg-[#0a0a0a] border border-white/10 hover:border-indigo-500/40 transition-all duration-500 cursor-pointer ${colSpan} h-[340px] md:h-[380px] shadow-lg hover:shadow-indigo-500/10`}
     >
-      <div className={`absolute inset-0 bg-gradient-to-br ${project.color || 'from-slate-800 to-slate-900'} opacity-10 group-hover:opacity-20 transition-opacity duration-500`} />
+      <div className={`absolute inset-0 bg-linear-to-br ${project.color || 'from-slate-800 to-slate-900'} opacity-10 group-hover:opacity-20 transition-opacity duration-500`} />
       
       <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
 

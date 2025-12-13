@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NAV_ITEMS } from '@/lib/constants';
@@ -8,15 +8,8 @@ import { Menu, X, MessageCircle } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 
 export const Navbar: React.FC = () => {
-    const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
-
-    useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 20);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     // ... (Mobile menu logic remains similar)
 
@@ -65,7 +58,7 @@ export const Navbar: React.FC = () => {
                             href="mailto:hello@kampit.dev"
                             className="flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-white text-black font-bold text-base transition-all duration-300 hover:bg-slate-200 hover:scale-105 active:scale-95 shadow-lg"
                         >
-                            <span>Let's Talk</span>
+                            <span>Let&apos;s Talk</span>
                             <MessageCircle size={18} className="text-indigo-600 fill-current" />
                         </a>
 
