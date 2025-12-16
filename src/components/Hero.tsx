@@ -75,18 +75,23 @@ export const Hero: React.FC = () => {
                     <span className="text-slate-900 dark:text-white">KAMPIT</span>
                  </div>
                  
-                 <div className="hero-row flex flex-wrap gap-x-4 text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]">
+                 <div className="hero-row flex flex-wrap text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.9] pr-2">
                     <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-500 via-purple-500 to-cyan-500 dark:from-indigo-400 dark:via-purple-400 dark:to-cyan-400">OJHA</span>
                  </div>
             </div>
             
-            <p className="hero-sub max-w-xl text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light leading-relaxed border-l-4 border-indigo-500/50 pl-6">
-                {HERO_TEXT.sub}
-            </p>
+            <div className="space-y-4">
+                <p className="hero-sub max-w-xl text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light leading-relaxed border-l-4 border-indigo-500/50 pl-6">
+                    {HERO_TEXT.sub}
+                </p>
+                <div className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 dark:border-yellow-500 p-4 rounded-r text-yellow-800 dark:text-yellow-200 text-sm">
+                    <p>🚧 Portfolio in progress - Currently showcasing dummy data 🚧</p>
+                </div>
+            </div>
 
             <div className="flex flex-wrap gap-5 pt-4">
               <Link href="/work" className="hero-btn group relative px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-lg overflow-hidden transition-all shadow-xl hover:shadow-indigo-500/20">
-                <span className="relative z-10 group-hover:text-indigo-400 dark:group-hover:text-indigo-600 transition-colors">View My Work</span>
+                <span className="relative z-10 group-hover:text-indigo-400 dark:group-hover:text-indigo-600 transition-colors">View Proof of Work</span>
                 <div className="absolute inset-0 bg-slate-800 dark:bg-indigo-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
               </Link>
               
@@ -99,36 +104,17 @@ export const Hero: React.FC = () => {
               </a>
               
               <div className="flex gap-4 items-center">
-                 <SocialButton icon={<Github size={24} />} href="https://github.com" label="GitHub" />
-                 <SocialButton icon={<Linkedin size={24} />} href="https://linkedin.com" label="LinkedIn" />
+                 <SocialButton icon={<Github size={24} />} href="https://github.com/kampitojha" label="GitHub" />
+                 <SocialButton icon={<Linkedin size={24} />} href="https://www.linkedin.com/in/kampitojha/" label="LinkedIn" />
               </div>
             </div>
         </div>
 
-        {/* Right: Network Graph + Floating Cards */}
-        <motion.div style={{ y: y2 }} className="hidden lg:block relative h-[600px] w-full pointer-events-none">
-            <div className="absolute inset-0 z-0 opacity-70 pointer-events-auto">
+        {/* Right: Network Graph */}
+        <motion.div style={{ y: y2 }} className="hidden lg:flex items-center justify-center h-[600px] w-full">
+            <div className="relative w-full h-full">
                 <NetworkGraph />
             </div>
-
-            <FloatingCard 
-                icon={<Code2 size={40} className="text-cyan-500 dark:text-cyan-400" />} 
-                label="Clean Code" 
-                className="top-20 right-20 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border-slate-200 dark:border-white/10 z-10" 
-                delay={0}
-            />
-            <FloatingCard 
-                icon={<Cpu size={40} className="text-indigo-500 dark:text-indigo-400" />} 
-                label="System Arch" 
-                className="top-1/2 left-10 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border-slate-200 dark:border-white/10 z-10" 
-                delay={1.5}
-            />
-            <FloatingCard 
-                icon={<Globe size={40} className="text-purple-500 dark:text-purple-400" />} 
-                label="Global Scale" 
-                className="bottom-20 right-1/3 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border-slate-200 dark:border-white/10 z-10" 
-                delay={0.8}
-            />
         </motion.div>
 
       </div>

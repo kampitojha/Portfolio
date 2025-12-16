@@ -23,7 +23,7 @@ export const Projects: React.FC<ProjectsProps> = ({ limit, showTitle = true }) =
                 whileInView={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-5xl font-black text-white mb-6"
             >
-                Selected <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-500 to-cyan-500 dark:from-indigo-400 dark:to-cyan-400">Works</span>
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-500 to-cyan-500 dark:from-indigo-400 dark:to-cyan-400">Proof of Work</span>
             </motion.h2>
         </div>
       )}
