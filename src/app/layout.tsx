@@ -6,6 +6,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import { Providers } from "./providers";
 import { LiveStatus } from "@/components/LiveStatus";
 import { ChatBot } from "@/components/ChatBot";
+import { FloatingDock } from "@/components/FloatingDock";
 
 
 const font = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ['300', '400', '500', '600', '700', '800'] });
@@ -42,6 +43,7 @@ export default function RootLayout({
                 </footer>
                 <LiveStatus />
                 <ChatBot />
+                <FloatingDock />
             </SmoothScroll>
          </Providers>
       </body>

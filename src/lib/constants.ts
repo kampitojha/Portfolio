@@ -2,6 +2,7 @@ import { Project, Skill, NavItem, BlogPost } from '@/types';
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', path: '/' },
+  { label: 'About', path: '/about' },
   { label: 'Proof of Work', path: '/work' },
   { label: 'Blogs', path: '/blogs' },
   { label: 'Gallery', path: '/gallery' }
@@ -19,12 +20,12 @@ export const SKILLS_DATA: Skill[] = [
 export const PROJECTS: Project[] = [
   {
     id: 'neobank',
-    title: 'NeoBank Ultimate',
+    title: 'Syncmeet',
     description: 'A futuristic banking dashboard with real-time transaction processing and WebGL visualizations.',
     fullDescription: "Built a high-frequency trading dashboard simulator. The goal was to visualize 10,000+ data points without lagging the main thread. Used Web Workers for data parsing and WebGL for rendering charts. The result is a buttery smooth 60fps experience even on mid-range devices.",
     tags: ['Next.js', 'TypeScript', 'WebGL', 'PostgreSQL'],
-    link: 'https://github.com/kampit/neobank-demo',
-    github: 'https://github.com/kampit/neobank',
+    link: 'https://github.com/kampit/syncmeet',
+    github: 'https://github.com/kampit/syncmeet',
     featured: true,
     color: 'from-blue-500 to-cyan-400',
     stats: [

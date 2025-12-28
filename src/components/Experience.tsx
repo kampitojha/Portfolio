@@ -1,9 +1,20 @@
 "use client";
-import React from 'react';
-import { Download, Briefcase, Calendar } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { Download, Calendar } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 
 export const Experience: React.FC = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start 80%", "end center"]
+    });
+
+    const scaleY = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
   return (
     <div className="w-full">
         <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
@@ -16,7 +27,7 @@ export const Experience: React.FC = () => {
                     Career <span className="text-indigo-400">History</span>
                 </h2>
                 <p className="text-slate-400 text-lg max-w-xl">
-                    A timeline of my professional journey and the value I've delivered.
+                    A timeline of my professional journey and the value I&apos;ve delivered.
                 </p>
             </motion.div>
 
@@ -34,34 +45,54 @@ export const Experience: React.FC = () => {
             </motion.a>
         </div>
 
-        <div className="relative border-l border-slate-800 ml-3 space-y-12">
-            <ExperienceItem 
-                role="Senior Frontend Engineer"
-                company="TechCorp Inc."
-                period="2022 - Present"
-                description="Led the migration of a legacy monolithic app to Next.js micro-frontends. Improved LCP by 40% and reduced build times by 60%."
-                tags={['Next.js', 'Turborepo', 'AWS']}
-            />
-            <ExperienceItem 
-                role="Software Developer"
-                company="StartUp Studio"
-                period="2020 - 2022"
-                description="Built and shipped 3 SaaS products from scratch. Implemented real-time collaboration features using WebSockets and Redis."
-                tags={['React', 'Node.js', 'Socket.io']}
-            />
-            <ExperienceItem 
-                role="Frontend Intern"
-                company="WebFlows"
-                period="2019 - 2020"
-                description="Developed interactive UI components and optimized animation performance for marketing landing pages."
-                tags={['JavaScript', 'GSAP', 'HTML/CSS']}
-            />
-        </div>
+    <div ref={containerRef} className="relative ml-3 space-y-12">
+        {/* Static Background Line */}
+        <div className="absolute left-0 top-0 bottom-0 w-px bg-slate-800" />
+        
+        {/* Scroll Progress Line */}
+        <motion.div 
+            style={{ scaleY }}
+            className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500 via-purple-500 to-indigo-500 origin-top"
+        >
+             {/* Animated Glowing Head */}
+            <div className="absolute bottom-0 -left-1 w-2 h-4 bg-indigo-500/50 blur-md rounded-full shadow-[0_0_15px_2px_rgba(99,102,241,0.6)]" />
+        </motion.div>
+
+        <ExperienceItem 
+            role="Senior Frontend Engineer"
+            company="TechCorp Inc."
+            period="2022 - Present"
+            description="Led the migration of a legacy monolithic app to Next.js micro-frontends. Improved LCP by 40% and reduced build times by 60%."
+            tags={['Next.js', 'Turborepo', 'AWS']}
+        />
+        <ExperienceItem 
+            role="Software Developer"
+            company="StartUp Studio"
+            period="2020 - 2022"
+            description="Built and shipped 3 SaaS products from scratch. Implemented real-time collaboration features using WebSockets and Redis."
+            tags={['React', 'Node.js', 'Socket.io']}
+        />
+        <ExperienceItem 
+            role="Frontend Intern"
+            company="WebFlows"
+            period="2019 - 2020"
+            description="Developed interactive UI components and optimized animation performance for marketing landing pages."
+            tags={['JavaScript', 'GSAP', 'HTML/CSS']}
+        />
+    </div>
     </div>
   );
 };
 
-const ExperienceItem = ({ role, company, period, description, tags }: any) => (
+interface ExperienceItemProps {
+    role: string;
+    company: string;
+    period: string;
+    description: string;
+    tags: string[];
+}
+
+const ExperienceItem = ({ role, company, period, description, tags }: ExperienceItemProps) => (
     <motion.div 
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
