@@ -55,7 +55,7 @@ export const Navbar: React.FC = () => {
                         <ThemeToggle />
                         
                         <a
-                            href="mailto:hello@kampit.dev"
+                            href="mailto:kampitojha2@gmail.com" 
                             className="flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-white text-black font-bold text-base transition-all duration-300 hover:bg-slate-200 hover:scale-105 active:scale-95 shadow-lg"
                         >
                             <span>Let&apos;s Talk</span>
