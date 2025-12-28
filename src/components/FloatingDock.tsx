@@ -8,25 +8,25 @@ const DOCK_ITEMS = [
   { 
     label: 'Twitter', 
     icon: Twitter, 
-    href: 'https://twitter.com/kampit', 
+    href: 'https://twitter.com/semixevi', 
     color: 'hover:text-sky-500' 
   },
   { 
     label: 'LinkedIn', 
     icon: Linkedin, 
-    href: 'https://linkedin.com/in/kampit', 
+    href: 'https://linkedin.com/in/kampitojha', 
     color: 'hover:text-blue-600'
   },
   { 
     label: 'GitHub', 
     icon: Github, 
-    href: 'https://github.com/kampit', 
+    href: 'https://github.com/kampitojha', 
     color: 'hover:text-white'
   },
   { 
     label: 'Cal.com', 
     icon: Calendar, 
-    href: 'https://cal.com/kampit', 
+    href: 'https://cal.com/kampit-ojha-modpxr', 
     color: 'hover:text-indigo-500'
   },
 ];
