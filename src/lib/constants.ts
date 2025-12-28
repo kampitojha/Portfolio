@@ -28,6 +28,7 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/kampit/syncmeet',
     featured: true,
     color: 'from-blue-500 to-cyan-400',
+    image: '/images/projects/neobank.png',
     stats: [
         { label: "Performance", value: "98/100" },
         { label: "Transactions", value: "10k/sec" }
@@ -43,6 +44,7 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/kampit/ai-nexus',
     featured: true,
     color: 'from-violet-500 to-purple-400',
+    image: '/images/projects/ai-nexus.png',
     stats: [
         { label: "Latency", value: "<400ms" },
         { label: "Users", value: "2.5k+" }
@@ -56,7 +58,8 @@ export const PROJECTS: Project[] = [
     link: 'https://headless-store-demo.netlify.app',
     github: 'https://github.com/kampit/shopify-remix',
     featured: false,
-    color: 'from-emerald-500 to-teal-400'
+    color: 'from-emerald-500 to-teal-400',
+    image: '/images/projects/ecom-headless.png'
   },
   {
     id: 'devops-cli',
@@ -66,7 +69,8 @@ export const PROJECTS: Project[] = [
     link: 'https://crates.io/crates/devops-cli-tool',
     github: 'https://github.com/kampit/rust-cli',
     featured: false,
-    color: 'from-orange-500 to-red-400'
+    color: 'from-orange-500 to-red-400',
+    image: '/images/projects/devops-cli.png'
   },
   {
     id: 'portfolio-v1',

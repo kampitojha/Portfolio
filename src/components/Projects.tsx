@@ -2,6 +2,7 @@
 import React from 'react';
 import { ArrowUpRight, Code } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { PROJECTS } from '@/lib/constants';
 import { Project } from '@/types';
 import { motion } from 'framer-motion';
@@ -63,9 +64,21 @@ const ProjectCard = ({ project, colSpan }: { project: Project, colSpan: string }
       viewport={{ once: true, margin: "-50px" }}
       className={`group relative rounded-3xl overflow-hidden bg-[#0a0a0a] border border-white/10 hover:border-indigo-500/40 transition-all duration-500 cursor-pointer ${colSpan} h-[340px] md:h-[380px] shadow-lg hover:shadow-indigo-500/10`}
     >
-      <div className={`absolute inset-0 bg-linear-to-br ${project.color || 'from-slate-800 to-slate-900'} opacity-10 group-hover:opacity-20 transition-opacity duration-500`} />
+      {project.image ? (
+        <>
+            <Image 
+                src={project.image} 
+                alt={project.title} 
+                fill 
+                className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-50 group-hover:opacity-30" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+        </>
+      ) : (
+        <div className={`absolute inset-0 bg-linear-to-br ${project.color || 'from-slate-800 to-slate-900'} opacity-10 group-hover:opacity-20 transition-opacity duration-500`} />
+      )}
       
-      <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
+      <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay pointer-events-none" />
 
       <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between z-10">
         <div className="flex justify-between items-start">

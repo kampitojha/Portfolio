@@ -8,6 +8,7 @@ export interface Project {
   github?: string;
   featured?: boolean;
   color?: string;
+  image?: string;
   stats?: { label: string; value: string }[];
 }
 
