@@ -37,7 +37,7 @@ export default function AboutPage() {
           
           {/* Stats / Trivia Grid */}
           <div className="grid grid-cols-2 gap-4">
-             <StatCard label="Years Experience" value="4+" />
+             <StatCard label="Years Experience" value="1.5" />
              <StatCard label="Projects Shipped" value="15+" />
              <StatCard label="Coffee Consumed" value="∞" />
              <StatCard label="Bugs Squashed" value="1.2k" />
