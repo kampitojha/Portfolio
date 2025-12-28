@@ -96,8 +96,8 @@ export const Hero: React.FC = () => {
               </Link>
               
               <a 
-                href="/resume.pdf" 
-                download
+                href="/kampit_Ojha_Resume.pdf" 
+                download="Kampit_Ojha_Resume.pdf"
                 className="hero-btn px-8 py-4 rounded-full border border-slate-200 dark:border-white/20 text-slate-700 dark:text-white font-bold text-lg hover:bg-slate-100 dark:hover:bg-white/10 transition-all flex items-center gap-2"
               >
                 <FileText size={20} /> Resume

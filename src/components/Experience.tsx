@@ -32,8 +32,8 @@ export const Experience: React.FC = () => {
             </motion.div>
 
             <motion.a 
-                href="/resume.pdf" 
-                download
+                href="/kampit_Ojha_Resume.pdf" 
+                download="Kampit_Ojha_Resume.pdf"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 whileHover={{ scale: 1.05 }}
