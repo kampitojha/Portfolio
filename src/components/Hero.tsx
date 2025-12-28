@@ -49,7 +49,7 @@ export const Hero: React.FC = () => {
   }, { scope: container });
 
   return (
-    <section ref={container} id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
+    <section ref={container} id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-32 md:pt-20">
       
       <MatrixBackground />
 
