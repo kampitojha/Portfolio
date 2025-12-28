@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={`${font.className} min-h-screen bg-background text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 selection:text-indigo-200 antialiased transition-colors duration-300`} suppressHydrationWarning>
          <Providers>
             <SmoothScroll>
-                <div className="fixed inset-0 bg-grid z-[-1] pointer-events-none opacity-20 dark:opacity-40"></div>
+                <div className="fixed inset-0 bg-grid z-[-1] pointer-events-none opacity-20 dark:opacity-40" suppressHydrationWarning></div>
                 <Navbar />
                 <main className="grow">
                     {children}
@@ -37,9 +37,15 @@ export default function RootLayout({
 
                     </div>
                 </footer>
-                <LiveStatus />
-                <ChatBot />
-                <FloatingDock />
+                <div suppressHydrationWarning>
+                  <LiveStatus />
+                </div>
+                <div suppressHydrationWarning>
+                  <ChatBot />
+                </div>
+                <div suppressHydrationWarning>
+                  <FloatingDock />
+                </div>
             </SmoothScroll>
          </Providers>
       </body>

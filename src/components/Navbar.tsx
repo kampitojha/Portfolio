@@ -22,7 +22,7 @@ export const Navbar: React.FC = () => {
                 className="fixed top-6 left-0 w-full z-50 pointer-events-none flex justify-center"
             >
                 {/* Floating Island Container - Pointer events auto to allow clicking inside */}
-                <div className="pointer-events-auto bg-slate-900/80 dark:bg-[#0a0a0a]/80 backdrop-blur-2xl border border-slate-200/20 dark:border-white/10 rounded-full p-2 pr-3 shadow-2xl flex items-center gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-indigo-500/10">
+                <div className="pointer-events-auto bg-slate-900/80 dark:bg-[#0a0a0a]/80 backdrop-blur-2xl border border-slate-200/20 dark:border-white/10 rounded-full p-2 pr-3 shadow-2xl flex items-center gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-indigo-500/10" suppressHydrationWarning>
                     
                     {/* Desktop Nav Items */}
                     <nav className="hidden md:flex items-center gap-1">
