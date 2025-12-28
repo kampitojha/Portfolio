@@ -7,7 +7,7 @@ export const Experience: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start 80%", "end center"]
+        offset: ["start 80%", "end 85%"]
     });
 
     const scaleY = useSpring(scrollYProgress, {
@@ -59,26 +59,30 @@ export const Experience: React.FC = () => {
         </motion.div>
 
         <ExperienceItem 
-            role="Senior Frontend Engineer"
-            company="TechCorp Inc."
-            period="2022 - Present"
-            description="Led the migration of a legacy monolithic app to Next.js micro-frontends. Improved LCP by 40% and reduced build times by 60%."
-            tags={['Next.js', 'Turborepo', 'AWS']}
-        />
-        <ExperienceItem 
             role="Software Developer"
-            company="StartUp Studio"
-            period="2020 - 2022"
-            description="Built and shipped 3 SaaS products from scratch. Implemented real-time collaboration features using WebSockets and Redis."
-            tags={['React', 'Node.js', 'Socket.io']}
+            company="TestprepKart"
+            period="Dec 2025 - Present"
+            description="Developing scalable web applications and collaborating with cross-functional teams to deliver high-quality software solutions."
+            tags={['Next.js', 'React', 'Node.js']}
         />
         <ExperienceItem 
-            role="Frontend Intern"
-            company="WebFlows"
-            period="2019 - 2020"
-            description="Developed interactive UI components and optimized animation performance for marketing landing pages."
-            tags={['JavaScript', 'GSAP', 'HTML/CSS']}
+            role="Full Stack Developer"
+            company="Genesis Web Solutions"
+            period="Jan 2025 - July 2025"
+            description="Contributed to full stack development, fixed bugs, and assisted in implementing new features for the core product."
+            tags={['React', 'TypeScript', 'Tailwind']}
         />
+        
+        {/* Spacer to extend line past the last item */}
+        <div className="h-12" />
+
+        {/* End Node */}
+        <div className="absolute -left-[5px] bottom-0 w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-900 shadow-[0_0_0_4px_#030014]">
+            <motion.div 
+                style={{ scale: scaleY, opacity: scaleY }}
+                className="absolute inset-0 rounded-full bg-indigo-500 shadow-[0_0_10px_2px_rgba(99,102,241,0.5)]" 
+            />
+        </div>
     </div>
     </div>
   );
