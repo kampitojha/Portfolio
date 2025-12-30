@@ -1,5 +1,4 @@
 import { Hero } from "@/components/Hero";
-import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
 import { GithubStats } from "@/components/GithubStats";
 import { Experience } from "@/components/Experience";
@@ -17,17 +16,12 @@ export default function Home() {
            <GithubStats />
         </section>
 
-        {/* Section 2: Selected Work (Crucial for Portfolios) */}
-        <section data-aos="fade-up">
-             <Projects limit={3} showTitle={true} />
-        </section>
-
-        {/* Section 3: Tech Stack & Skills */}
+        {/* Section 2: Tech Stack & Skills */}
         <section data-aos="fade-up">
              <Skills />
         </section>
 
-        {/* Section 4: Experience */}
+        {/* Section 3: Experience */}
         <section data-aos="fade-up">
              <Experience />
         </section>
