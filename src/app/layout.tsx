@@ -4,7 +4,6 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import { Providers } from "./providers";
 import { LiveStatus } from "@/components/LiveStatus";
-import { ChatBot } from "@/components/ChatBot";
 import { FloatingDock } from "@/components/FloatingDock";
 
 
@@ -58,9 +57,6 @@ export default function RootLayout({
                 </footer>
                 <div suppressHydrationWarning>
                   <LiveStatus />
-                </div>
-                <div suppressHydrationWarning>
-                  <ChatBot />
                 </div>
                 <div suppressHydrationWarning>
                   <FloatingDock />
