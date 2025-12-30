@@ -117,5 +117,5 @@ export const BLOG_POSTS: BlogPost[] = [
 export const HERO_TEXT = {
   greeting: "Hi, I'm Kampit",
   role: "Engineer & Builder",
-  sub: "Crafting digital experiences that merge technical precision with aesthetic excellence."
+  sub: "Full-stack developer focused on building fast, scalable, and user-centric web applications with clean architecture and real-world problem solving."
 };

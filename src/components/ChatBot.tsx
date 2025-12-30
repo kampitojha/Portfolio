@@ -95,7 +95,7 @@ export const ChatBot = () => {
                         initial={{ opacity: 0, y: 20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.95 }}
-                        className="fixed bottom-24 right-6 z-50 w-80 md:w-96 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[500px]"
+                        className="fixed bottom-28 md:bottom-24 right-4 md:right-6 z-50 w-[calc(100vw-2rem)] max-w-[380px] md:w-96 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[500px]"
                     >
                         {/* Header */}
                         <div className="bg-indigo-600 p-4 flex items-center justify-between text-white">
@@ -161,7 +161,7 @@ export const ChatBot = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setIsOpen(!isOpen)}
-                className="fixed bottom-6 right-6 z-50 p-4 bg-indigo-600 text-white rounded-full shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 transition-shadow"
+                className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 p-4 bg-indigo-600 text-white rounded-full shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 transition-shadow"
             >
                 {isOpen ? <X size={24} /> : <Sparkles size={24} />}
             </motion.button>

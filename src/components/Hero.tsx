@@ -84,9 +84,6 @@ export const Hero: React.FC = () => {
                 <p className="hero-sub max-w-xl text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light leading-relaxed border-l-4 border-indigo-500/50 pl-6">
                     {HERO_TEXT.sub}
                 </p>
-                <div className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 dark:border-yellow-500 p-4 rounded-r text-yellow-800 dark:text-yellow-200 text-sm">
-                    <p>🚧 Portfolio in progress - Currently showcasing dummy data 🚧</p>
-                </div>
             </div>
 
             <div className="flex flex-wrap gap-5 pt-4">

@@ -16,14 +16,14 @@ export const NetworkGraph: React.FC = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: true }); // Enable transparency
     if (!ctx) return;
 
     let width = 0;
     let height = 0;
     let points: Point[] = [];
-    const pointCount = 40; // Dense enough
-    const connectionDistance = 150;
+    const pointCount = 80; // More nodes for denser graph
+    const connectionDistance = 200; // Longer connections
     const mouse = { x: -1000, y: -1000 };
 
     const resize = () => {
@@ -36,13 +36,14 @@ export const NetworkGraph: React.FC = () => {
 
     const initPoints = () => {
         points = [];
+        const colors = ['#ffffff', '#ef4444', '#f97316', '#2dd4bf', '#6366f1']; // White, Red, Orange, Cyan, Indigo
         for (let i = 0; i < pointCount; i++) {
             points.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 1, // Velocity
-                vy: (Math.random() - 0.5) * 1,
-                color: Math.random() > 0.5 ? '#6366f1' : '#2dd4bf' // Indigo or Teal
+                vx: (Math.random() - 0.5) * 0.8, // Slightly slower
+                vy: (Math.random() - 0.5) * 0.8,
+                color: colors[Math.floor(Math.random() * colors.length)]
             });
         }
     };
@@ -77,16 +78,19 @@ export const NetworkGraph: React.FC = () => {
                  point.vy *= 0.8;
             }
 
-            // Draw Point
+            // Draw Point with glow
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = point.color;
             ctx.beginPath();
-            ctx.arc(point.x, point.y, 4, 0, Math.PI * 2);
+            ctx.arc(point.x, point.y, 5, 0, Math.PI * 2);
             ctx.fillStyle = point.color;
             ctx.fill();
+            ctx.shadowBlur = 0; // Reset shadow
         });
 
         // Draw Lines
-        ctx.strokeStyle = 'rgba(148, 163, 184, 0.2)'; // Slate-400 equivalent
-        ctx.lineWidth = 1;
+        ctx.strokeStyle = 'rgba(148, 163, 184, 0.3)'; // Slightly more visible
+        ctx.lineWidth = 1.5;
 
         for (let i = 0; i < points.length; i++) {
             for (let j = i + 1; j < points.length; j++) {
@@ -132,7 +136,7 @@ export const NetworkGraph: React.FC = () => {
 
   return (
     <div ref={containerRef} className="w-full h-full relative">
-        <canvas ref={canvasRef} className="block" />
+        <canvas ref={canvasRef} className="block" style={{ background: 'transparent' }} />
         {/* Glow effect overlay */}
         <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-background to-transparent pointer-events-none" />
     </div>
