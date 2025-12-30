@@ -7,23 +7,27 @@ export default function Template({ children }: { children: React.ReactNode }) {
   const container = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power4.inOut" } });
+    const tl = gsap.timeline({ 
+      defaults: { ease: "power4.inOut" },
+      // Start immediately on mount
+      delay: 0
+    });
 
-    // Banners wipe up
+    // Banners wipe up - faster animation
     tl.set(".banner", { yPercent: 0 })
       .to(".banner", {
         yPercent: -100,
-        stagger: 0.1, // Classic shutter effect
-        duration: 0.8,
+        stagger: 0.08, // Slightly faster stagger
+        duration: 0.6, // Reduced duration
       });
 
-    // Optional: Content fade in slightly after
+    // Content fade in - faster and smoother
     tl.from(container.current, {
-        y: 20,
+        y: 15,
         opacity: 0,
-        duration: 0.5,
+        duration: 0.4,
         clearProps: "all" 
-    }, "-=0.5");
+    }, "-=0.4");
 
   }, { scope: container });
 

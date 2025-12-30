@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
 
+/* Prevent flash of unstyled content */
+html {
+  background-color: #050505;
+  color-scheme: dark;
+}
+
 :root {
   --background: #ffffff;
   --surface: #f8fafc;
@@ -12,6 +18,8 @@
   --scrollbar-track: #f1f5f9;
   --scrollbar-thumb: #cbd5e1;
   --scrollbar-thumb-hover: #94a3b8;
+  
+  background-color: #ffffff;
 }
 
 .dark {
@@ -25,6 +33,8 @@
   --scrollbar-track: #050505;
   --scrollbar-thumb: #312e81;
   --scrollbar-thumb-hover: #4338ca;
+  
+  background-color: #050505;
 }
 
 body {
@@ -32,6 +42,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
 }
 
 /* Creative Background Grid - Adapts to Light/Dark */
