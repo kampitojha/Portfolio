@@ -46,7 +46,7 @@ export default function WorkPage() {
                 <div className="absolute inset-0 bg-indigo-500/5 group-hover:bg-indigo-500/10 transition-colors duration-500"></div>
                 <h3 className="text-3xl font-bold text-slate-400 mb-4 relative z-10">More in the archives</h3>
                 <p className="text-slate-500 text-lg relative z-10">
-                    I'm constantly building. Check my <a href="https://github.com/kampit" className="text-indigo-400 hover:text-white underline decoration-wavy underline-offset-4">GitHub</a> for the raw, unpolished gems.
+                    I'm constantly building. Check my <a href="https://github.com/kampitojha" className="text-indigo-400 hover:text-white underline decoration-wavy underline-offset-4">GitHub</a> for the raw, unpolished gems.
                 </p>
             </motion.div>
         </div>
