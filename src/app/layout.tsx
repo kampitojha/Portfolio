@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/Navbar";
 import SmoothScroll from "@/components/SmoothScroll";
 import { Providers } from "./providers";
 import { LiveStatus } from "@/components/LiveStatus";
@@ -47,7 +46,7 @@ export default function RootLayout({
          <Providers>
             <SmoothScroll>
                 <div className="fixed inset-0 bg-grid z-[-1] pointer-events-none opacity-20 dark:opacity-40" suppressHydrationWarning></div>
-                <Navbar />
+                {/* Navbar removed - all navigation in FloatingDock */}
                 <main className="grow">
                     {children}
                 </main>

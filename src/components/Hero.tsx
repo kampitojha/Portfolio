@@ -1,161 +1,134 @@
 "use client";
 import React, { useRef } from 'react';
-import { ArrowDown, Github, Linkedin, Mail, Code2, Cpu, Globe, FileText } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, FileText } from 'lucide-react';
 import Link from 'next/link';
-import { HERO_TEXT } from '@/lib/constants';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { motion, useScroll, useTransform } from 'framer-motion';
 import dynamic from 'next/dynamic';
 
-// Dynamic imports for heavy canvas components to unclog main thread
+// Dynamic import for MatrixBackground
 const MatrixBackground = dynamic(() => import('./MatrixBackground').then(mod => mod.MatrixBackground), { 
     ssr: false,
     loading: () => <div className="fixed inset-0 bg-slate-950/20" /> 
 });
-const NetworkGraph = dynamic(() => import('./NetworkGraph').then(mod => mod.NetworkGraph), { 
-    ssr: false,
-    loading: () => <div className="absolute inset-0" />
-});
 
 export const Hero: React.FC = () => {
   const container = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
   
   useGSAP(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
       
-      tl.from(".hero-badge", { y: -20, opacity: 0, duration: 0.8, delay: 0.2 })
-        .from(".hero-row", { y: 50, opacity: 0, stagger: 0.1, duration: 1 }, "-=0.4")
-        .from(".hero-sub", { y: 30, opacity: 0, duration: 0.8 }, "-=0.6")
-        .from(".hero-btn", { y: 20, opacity: 0, stagger: 0.1, duration: 0.6 }, "-=0.4");
-      
-     // Magnetic effect
-     const buttons = document.querySelectorAll('.hero-btn');
-     buttons.forEach((btn) => {
-         btn.addEventListener('mousemove', (e: any) => {
-             const rect = btn.getBoundingClientRect();
-             if (!rect) return;
-             const x = e.clientX - rect.left - rect.width / 2;
-             const y = e.clientY - rect.top - rect.height / 2;
-             gsap.to(btn, { x: x * 0.2, y: y * 0.2, duration: 0.3 });
-         });
-         btn.addEventListener('mouseleave', () => {
-             gsap.to(btn, { x: 0, y: 0, duration: 0.3 });
-         });
-     });
+      tl.from(".hero-name", { y: 30, opacity: 0, duration: 1, delay: 0.3 })
+        .from(".hero-about", { y: 20, opacity: 0, duration: 0.8 }, "-=0.5")
+        .from(".hero-links", { y: 20, opacity: 0, duration: 0.8 }, "-=0.4");
+        
   }, { scope: container });
 
   return (
-    <section ref={container} id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-32 md:pt-20">
+    <section ref={container} id="hero" className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden pt-32 md:pt-20">
       
       <MatrixBackground />
 
-      {/* Blobs - Reduced opacity and optimized with will-change */}
+      {/* Subtle gradient blobs */}
       <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-indigo-600/10 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob will-change-transform" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-purple-600/10 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000 will-change-transform" />
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+      {/* Centered Content */}
+      <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-4xl text-center space-y-12">
         
-        {/* Left: Text Content */}
-        <div className="text-left space-y-8 perspective-1000">
-            <div className="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-500 dark:text-indigo-300 text-sm font-bold tracking-wide backdrop-blur-md">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-                </span>
-                Available for Hire
-            </div>
-            
-            <div className="space-y-2 relative z-20">
-                 {/* Name - Static Text */}
-                 <div className="hero-row flex flex-wrap gap-x-4 text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]">
-                    <span className="text-slate-900 dark:text-white">KAMPIT</span>
-                 </div>
-                 
-                 <div className="hero-row flex flex-wrap text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.9] pr-2">
-                    <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-500 via-purple-500 to-cyan-500 dark:from-indigo-400 dark:via-purple-400 dark:to-cyan-400">OJHA</span>
-                 </div>
-            </div>
-            
-            <div className="space-y-4">
-                <p className="hero-sub max-w-xl text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light leading-relaxed border-l-4 border-indigo-500/50 pl-6">
-                    {HERO_TEXT.sub}
-                </p>
-            </div>
-
-            <div className="flex flex-wrap gap-5 pt-4">
-              <Link href="/work" className="hero-btn group relative px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-lg overflow-hidden transition-all shadow-xl hover:shadow-indigo-500/20">
-                <span className="relative z-10 group-hover:text-indigo-400 dark:group-hover:text-indigo-600 transition-colors">View Proof of Work</span>
-                <div className="absolute inset-0 bg-slate-800 dark:bg-indigo-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
-              </Link>
-              
-              <a 
-                href="/kampit_Ojha_Resume.pdf" 
-                download="Kampit_Ojha_Resume.pdf"
-                className="hero-btn px-8 py-4 rounded-full border border-slate-200 dark:border-white/20 text-slate-700 dark:text-white font-bold text-lg hover:bg-slate-100 dark:hover:bg-white/10 transition-all flex items-center gap-2"
-              >
-                <FileText size={20} /> Resume
-              </a>
-              
-              <div className="flex gap-4 items-center">
-                 <SocialButton icon={<Github size={24} />} href="https://github.com/kampitojha" label="GitHub" />
-                 <SocialButton icon={<Linkedin size={24} />} href="https://www.linkedin.com/in/kampitojha/" label="LinkedIn" />
-              </div>
-            </div>
+        {/* Name */}
+        <div className="hero-name space-y-3">
+          <h1 className="text-6xl md:text-8xl font-black tracking-tight">
+            <span className="text-white">hi, </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">kampit</span>
+            <span className="text-white"> here</span>
+          </h1>
+          <AgeCounter />
         </div>
 
-        {/* Right: Network Graph */}
-        <motion.div style={{ y: y2 }} className="hidden lg:flex items-center justify-center h-[600px] w-full">
-            <div className="relative w-full h-full">
-                <NetworkGraph />
-            </div>
-        </motion.div>
+        {/* About Section */}
+        <div className="hero-about space-y-6 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-300">about</h2>
+          <div className="text-slate-400 text-lg leading-relaxed space-y-4">
+            <p>I like building things for the web. Clean code, smooth experiences.</p>
+            <p>I write code and solve problems.</p>
+            <p>
+              If you want to know more about me, check out{' '}
+              <Link href="/about" className="text-indigo-400 hover:text-indigo-300 underline underline-offset-4">
+                what I believe in
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+
+        {/* Social Links */}
+        <div className="hero-links flex items-center justify-center gap-6 pt-8">
+          <a 
+            href="https://github.com/kampitojha" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-3 rounded-full bg-slate-800/50 hover:bg-slate-700/50 text-slate-300 hover:text-white transition-all hover:scale-110"
+            aria-label="GitHub"
+          >
+            <Github size={24} />
+          </a>
+          <a 
+            href="https://linkedin.com/in/kampitojha" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-3 rounded-full bg-slate-800/50 hover:bg-slate-700/50 text-slate-300 hover:text-white transition-all hover:scale-110"
+            aria-label="LinkedIn"
+          >
+            <Linkedin size={24} />
+          </a>
+          <Link 
+            href="/Kampit_Resume.pdf" 
+            target="_blank"
+            className="p-3 rounded-full bg-slate-800/50 hover:bg-slate-700/50 text-slate-300 hover:text-white transition-all hover:scale-110"
+            aria-label="Resume"
+          >
+            <FileText size={24} />
+          </Link>
+        </div>
 
       </div>
 
-      <motion.div 
-        style={{ y: y1 }}
-        className="absolute bottom-10 right-10 flex flex-col items-center gap-2 text-slate-400 mix-blend-difference dark:mix-blend-screen"
-      >
-        <span className="text-xs uppercase tracking-[0.3em] rotate-90 origin-right translate-x-8 mb-8">Scroll</span>
-        <ArrowDown size={32} className="animate-bounce" />
-      </motion.div>
+      {/* Scroll Down Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <ArrowDown className="text-slate-500" size={32} />
+      </div>
+
     </section>
   );
 };
 
-
-
-const SocialButton = ({ icon, href, label }: { icon: React.ReactNode, href: string, label: string }) => (
-  <a 
-    href={href}
-    target="_blank" 
-    rel="noopener noreferrer"
-    aria-label={label}
-    className="hero-btn p-4 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-white hover:bg-white dark:hover:bg-indigo-600 hover:border-indigo-200 dark:hover:border-indigo-500 transition-all duration-300"
-  >
-    {icon}
-  </a>
-);
-
-const FloatingCard = ({ icon, label, className, delay }: { icon: React.ReactNode, label: string, className: string, delay: number }) => (
-    <motion.div 
-        className={`absolute p-6 rounded-3xl border shadow-xl dark:shadow-2xl flex flex-col items-center gap-3 w-48 ${className}`}
-        animate={{ 
-            y: [0, -20, 0],
-            rotate: [0, 2, -2, 0]
-        }}
-        transition={{ 
-            duration: 6,
-            delay: delay,
-            repeat: Infinity,
-            ease: "easeInOut"
-        }}
-    >
-        {icon}
-        <span className="font-bold text-slate-700 dark:text-slate-200">{label}</span>
-    </motion.div>
-)
+// Live Age Counter Component
+const AgeCounter: React.FC = () => {
+  const [age, setAge] = React.useState<number>(0);
+  
+  React.useEffect(() => {
+    const birthDate = new Date('2002-04-22T00:00:00').getTime();
+    
+    const updateAge = () => {
+      const now = new Date().getTime();
+      const diffInMs = now - birthDate;
+      const yearsElapsed = diffInMs / (1000 * 60 * 60 * 24 * 365.25);
+      setAge(yearsElapsed);
+    };
+    
+    // Update immediately
+    updateAge();
+    
+    // Update every 100ms for smooth counting
+    const interval = setInterval(updateAge, 100);
+    
+    return () => clearInterval(interval);
+  }, []);
+  
+  return (
+    <p className="text-slate-400 text-sm md:text-base font-mono">
+      been here for {age.toFixed(9)} years
+    </p>
+  );
+};
