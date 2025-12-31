@@ -59,18 +59,18 @@ export const Experience: React.FC = () => {
         </motion.div>
 
         <ExperienceItem 
-            role="Software Developer"
-            company="TestprepKart"
+            role="SEO Developer"
+            company="TestprepKart - Internship"
             period="Dec 2025 - Present"
-            description="Developing scalable web applications and collaborating with cross-functional teams to deliver high-quality software solutions."
-            tags={['Next.js', 'React', 'Node.js']}
+            description="During my SEO internship I conducted keyword research optimized web-pages for on page SEO and used tools like google analytics & ahrefs to improve search rankings."
+            tags={['Google Analytics', 'Keyword Research', 'SEO']}
         />
         <ExperienceItem 
-            role="Full Stack Developer"
-            company="Genesis Web Solutions"
-            period="Jan 2025 - July 2025"
-            description="Contributed to full stack development, fixed bugs, and assisted in implementing new features for the core product."
-            tags={['React', 'TypeScript', 'Tailwind']}
+            role="Full Stack Engineer"
+            company="Genesis Web Solutions - Internship"
+            period="Feb 2025 - Jul 2025"
+            description="Developed & delivered frontend for 4 projects from scratch with ReactJs and TailwindCSS ensuring high quality. Boosted page load efficiency by applying lazy loading and other performance optimization techniques. Improved development efficiency by 40 percent utilizing component libraries like ShadCN and Material UI."
+            tags={['Next.js', 'Tailwind CSS', 'React']}
         />
         
         {/* Spacer to extend line past the last item */}

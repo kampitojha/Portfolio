@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Home, User, Briefcase, BookOpen, Image, Calendar } from 'lucide-react';
+import { Home, User, BookOpen, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -21,24 +21,10 @@ const DOCK_ITEMS = [
     type: 'internal' as const
   },
   { 
-    label: 'Work', 
-    icon: Briefcase, 
-    href: '/work', 
-    color: 'hover:text-purple-400',
-    type: 'internal' as const
-  },
-  { 
     label: 'Blogs', 
     icon: BookOpen, 
     href: '/blogs', 
     color: 'hover:text-green-400',
-    type: 'internal' as const
-  },
-  { 
-    label: 'Gallery', 
-    icon: Image, 
-    href: '/gallery', 
-    color: 'hover:text-pink-400',
     type: 'internal' as const
   },
   { 
