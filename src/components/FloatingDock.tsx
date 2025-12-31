@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Home, User, BookOpen, Calendar } from 'lucide-react';
+import { Home, User, BookOpen, Mail, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -26,6 +26,13 @@ const DOCK_ITEMS = [
     href: '/blogs', 
     color: 'hover:text-green-400',
     type: 'internal' as const
+  },
+  { 
+    label: 'Email', 
+    icon: Mail, 
+    href: 'mailto:kampitojha2@gmail.com', 
+    color: 'hover:text-red-400',
+    type: 'external' as const
   },
   { 
     label: 'Cal.com', 
