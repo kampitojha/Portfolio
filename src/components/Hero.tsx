@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from 'react';
-import { ArrowDown, Github, Linkedin, FileText } from 'lucide-react';
+import { ArrowDown, Github, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -82,14 +82,6 @@ export const Hero: React.FC = () => {
           >
             <Linkedin size={24} />
           </a>
-          <Link 
-            href="/Kampit_Resume.pdf" 
-            target="_blank"
-            className="p-3 rounded-full bg-slate-800/50 hover:bg-slate-700/50 text-slate-300 hover:text-white transition-all hover:scale-110"
-            aria-label="Resume"
-          >
-            <FileText size={24} />
-          </Link>
         </div>
 
       </div>

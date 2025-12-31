@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Home, User, Briefcase, BookOpen, Image, Github, Linkedin, Calendar } from 'lucide-react';
+import { Home, User, Briefcase, BookOpen, Image, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -40,20 +40,6 @@ const DOCK_ITEMS = [
     href: '/gallery', 
     color: 'hover:text-pink-400',
     type: 'internal' as const
-  },
-  { 
-    label: 'LinkedIn', 
-    icon: Linkedin, 
-    href: 'https://linkedin.com/in/kampitojha', 
-    color: 'hover:text-blue-500',
-    type: 'external' as const
-  },
-  { 
-    label: 'GitHub', 
-    icon: Github, 
-    href: 'https://github.com/kampitojha', 
-    color: 'hover:text-white',
-    type: 'external' as const
   },
   { 
     label: 'Cal.com', 

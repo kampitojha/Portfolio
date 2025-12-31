@@ -3,7 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import { Providers } from "./providers";
-import { LiveStatus } from "@/components/LiveStatus";
+
 import { FloatingDock } from "@/components/FloatingDock";
 
 
@@ -46,9 +46,7 @@ export default function RootLayout({
 
                     </div>
                 </footer>
-                <div suppressHydrationWarning>
-                  <LiveStatus />
-                </div>
+
                 <div suppressHydrationWarning>
                   <FloatingDock />
                 </div>
