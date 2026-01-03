@@ -61,7 +61,7 @@ export const Experience: React.FC = () => {
         <ExperienceItem 
             role="SEO Developer"
             company="TestprepKart - Internship"
-            period="Dec 2025 - Present"
+            period="Dec 2024"
             description="During my SEO internship I conducted keyword research optimized web-pages for on page SEO and used tools like google analytics & ahrefs to improve search rankings."
             tags={['Google Analytics', 'Keyword Research', 'SEO']}
         />
