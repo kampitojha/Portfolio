@@ -41,7 +41,7 @@ export default function RootLayout({
                     {children}
                 </main>
                 <footer className="py-6 border-t border-slate-200 dark:border-white/5 bg-white/50 dark:bg-black/20 backdrop-blur-sm transition-colors duration-300">
-                    <div className="max-w-6xl mx-auto px-6 text-center">
+                    <div className="max-w-6xl mx-auto px-6 text-left">
                         <p className="text-sm text-slate-500">© 2025 Kampit Ojha.</p>
                     </div>
                 </footer>
