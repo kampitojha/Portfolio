@@ -40,10 +40,9 @@ export default function RootLayout({
                 <main className="grow">
                     {children}
                 </main>
-                <footer className="py-12 border-t border-slate-200 dark:border-white/5 bg-white/50 dark:bg-black/20 backdrop-blur-sm transition-colors duration-300">
-                    <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-                        <p>© 2024 Kampit Ojha.</p>
-
+                <footer className="py-6 border-t border-slate-200 dark:border-white/5 bg-white/50 dark:bg-black/20 backdrop-blur-sm transition-colors duration-300">
+                    <div className="max-w-6xl mx-auto px-6 text-center">
+                        <p className="text-sm text-slate-500">© 2025 Kampit Ojha.</p>
                     </div>
                 </footer>
 

@@ -31,7 +31,6 @@ export const Footer = () => {
                         <h3 className="font-bold text-slate-900 dark:text-white mb-6 tracking-wide text-sm uppercase opacity-80">Explore</h3>
                         <ul className="space-y-4 text-sm text-slate-500 dark:text-slate-400 font-medium">
                              <li><Link href="/work" className="hover:text-indigo-500 dark:hover:text-white transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity"/>Work</Link></li>
-                             <li><Link href="/blogs" className="hover:text-indigo-500 dark:hover:text-white transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity"/>Blogs</Link></li>
                              <li><Link href="/gallery" className="hover:text-indigo-500 dark:hover:text-white transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity"/>Gallery</Link></li>
                              <li><Link href="/whiteboard" className="hover:text-indigo-500 dark:hover:text-white transition-colors flex items-center gap-2 group"><span className="w-1.5 h-1.5 rounded-full bg-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity"/>Whiteboard</Link></li>
                         </ul>

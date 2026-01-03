@@ -2,9 +2,7 @@ import { Project, Skill, NavItem, BlogPost } from '@/types';
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
   { label: 'Proof of Work', path: '/work' },
-  { label: 'Blogs', path: '/blogs' },
   { label: 'Gallery', path: '/gallery' }
 ];
 
