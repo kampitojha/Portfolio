@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Social Links */}
-        <div className="hero-links flex items-center justify-center gap-6 pt-8">
+        <div className="hero-links flex items-center justify-center gap-6 pt-12 pb-20">
           <a 
             href="https://github.com/kampitojha" 
             target="_blank" 
@@ -87,7 +87,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 animate-bounce">
         <ArrowDown className="text-slate-500" size={32} />
       </div>
 
