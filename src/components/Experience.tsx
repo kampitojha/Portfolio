@@ -77,7 +77,7 @@ export const Experience: React.FC = () => {
             company="Genesis Web Solutions - Internship"
             period="Feb 2025 - Jul 2025"
             description="Developed & delivered frontend for 4 projects from scratch with ReactJs and TailwindCSS ensuring high quality. Boosted page load efficiency by applying lazy loading and other performance optimization techniques. Improved development efficiency by 40 percent utilizing component libraries like ShadCN and Material UI."
-            tags={['Next.js', 'Tailwind CSS', 'React']}
+            tags={['Next.js', 'Node.js', 'Express.js', 'MongoDB', 'React', 'Tailwind CSS', 'TypeScript', 'Docker']}
         />
         
         {/* Spacer to extend line past the last item */}
