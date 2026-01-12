@@ -59,11 +59,18 @@ export const Experience: React.FC = () => {
         </motion.div>
 
         <ExperienceItem 
-            role="SEO Developer"
-            company="TestprepKart - Internship"
-            period="Dec 2024"
-            description="During my SEO internship I conducted keyword research optimized web-pages for on page SEO and used tools like google analytics & ahrefs to improve search rankings."
-            tags={['Google Analytics', 'Keyword Research', 'SEO']}
+            role="Frontend Developer"
+            company="Dezainahub - Internship"
+            period="Jan 2026 - Present"
+            description="Leading frontend development using Next.js and Zustand. Responsible for building scalable UI components, integrating complex APIs, and ensuring cross-browser compatibility and performance."
+            tags={['Next.js', 'Zustand', 'React.js', 'TypeScript']}
+        />
+        <ExperienceItem 
+            role="Freelancing"
+            company="Freelance"
+            period="Aug 2025 - Nov 2025"
+            description="Built responsive and user-friendly UIs using React.js, Next.js, and Tailwind CSS. Converted Figma mockups into pixel-perfect web pages, integrated APIs, and improved website performance and overall UX."
+            tags={['React.js', 'Next.js', 'Tailwind CSS', 'JavaScript']}
         />
         <ExperienceItem 
             role="Full Stack Engineer"
