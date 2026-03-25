@@ -59,25 +59,32 @@ export const Experience: React.FC = () => {
         </motion.div>
 
         <ExperienceItem 
-            role="Frontend Developer"
-            company="Dezainahub - Internship"
+            role="Software Engineer"
+            company="EnverseIQ"
             period="Jan 2026 - Present"
-            description="Leading frontend development using Next.js and Zustand. Responsible for building scalable UI components, integrating complex APIs, and ensuring cross-browser compatibility and performance."
-            tags={['Next.js', 'Zustand', 'React.js', 'TypeScript']}
+            description="Architected and developed the core multi-tenant backend for the Enverse SC Core Platform using Python and Django, ensuring 100% data isolation through PostgreSQL schemas. Built key functional modules including dynamic table management, tenant onboarding, and real-time analytics dashboards."
+            tags={['Python', 'Django', 'PostgreSQL', 'Backend Architecture']}
+        />
+        <ExperienceItem 
+            role="Frontend Developer Intern"
+            company="Dezainahub"
+            period="Nov 2025 - Dec 2025"
+            description="Enhanced responsive UI components using React.js and Tailwind CSS to improve user experience across devices. Integrated REST APIs and implemented performance optimizations like lazy loading for faster page rendering."
+            tags={['React.js', 'Tailwind CSS', 'Next.js', 'TypeScript', 'API Integration']}
         />
         <ExperienceItem 
             role="Freelancing"
             company="Freelance"
             period="Aug 2025 - Nov 2025"
             description="Built responsive and user-friendly UIs using React.js, Next.js, and Tailwind CSS. Converted Figma mockups into pixel-perfect web pages, integrated APIs, and improved website performance and overall UX."
-            tags={['React.js', 'Next.js', 'Tailwind CSS', 'JavaScript']}
+            tags={['React.js', 'Next.js', 'Tailwind CSS', 'JavaScript', 'TypeScript']}
         />
         <ExperienceItem 
-            role="Full Stack Engineer"
-            company="Genesis Web Solutions - Internship"
-            period="Feb 2025 - Jul 2025"
-            description="Developed & delivered frontend for 4 projects from scratch with ReactJs and TailwindCSS ensuring high quality. Boosted page load efficiency by applying lazy loading and other performance optimization techniques. Improved development efficiency by 40 percent utilizing component libraries like ShadCN and Material UI."
-            tags={['Next.js', 'Node.js', 'Express.js', 'MongoDB', 'React', 'Tailwind CSS', 'TypeScript', 'Docker']}
+            role="Full Stack Developer Intern"
+            company="Genesis Web Solutions"
+            period="May 2025 - Oct 2025"
+            description="Developed and delivered frontends for 4 projects from scratch using React.js and TailwindCSS. Boosted page load efficiency by applying lazy loading and other performance optimization techniques. Improved development efficiency by 40% utilizing component libraries like ShadCN and Material UI."
+            tags={['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'ShadCN', 'Material UI']}
         />
         
         {/* Spacer to extend line past the last item */}

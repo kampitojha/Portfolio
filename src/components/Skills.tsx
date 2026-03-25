@@ -31,25 +31,25 @@ export const Skills: React.FC = () => {
                 <SkillCard 
                     icon={<Layout className="text-cyan-400" size={20} />} 
                     title="Frontend" 
-                    tags={["React", "Next.js", "Tailwind"]}
+                    tags={["React.js", "Next.js", "Tailwind CSS", "Shadcn"]}
                     delay={0.1}
                 />
                 <SkillCard 
                     icon={<Server className="text-indigo-400" size={20} />} 
                     title="Backend" 
-                    tags={["Node.js", "Rust", "Postgres"]}
+                    tags={["Node.js", "Express.js", "BunJS", "Firebase"]}
                     delay={0.2}
                 />
                 <SkillCard 
                     icon={<Terminal className="text-purple-400" size={20} />} 
-                    title="DevOps" 
-                    tags={["Docker", "AWS", "CI/CD"]}
+                    title="Languages" 
+                    tags={["Python", "TypeScript", "JavaScript", "C/C++", "SQL"]}
                     delay={0.3}
                 />
                 <SkillCard 
                     icon={<Cpu className="text-emerald-400" size={20} />} 
-                    title="Emerging" 
-                    tags={["WASM", "LLMs", "Solana"]}
+                    title="App Development" 
+                    tags={["React Native", "Kotlin", "Jetpack Compose"]}
                     delay={0.4}
                 />
             </div>

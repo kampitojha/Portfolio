@@ -7,78 +7,51 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const SKILLS_DATA: Skill[] = [
-  { subject: 'Frontend', A: 145, fullMark: 150 },
-  { subject: 'Backend', A: 120, fullMark: 150 },
-  { subject: 'DevOps', A: 95, fullMark: 150 },
-  { subject: 'Design', A: 110, fullMark: 150 },
-  { subject: 'System Arch', A: 130, fullMark: 150 },
-  { subject: 'AI/LLM', A: 100, fullMark: 150 },
+  { subject: 'Frontend', A: 140, fullMark: 150 },
+  { subject: 'Backend', A: 130, fullMark: 150 },
+  { subject: 'Mobile', A: 110, fullMark: 150 },
+  { subject: 'Languages', A: 135, fullMark: 150 },
+  { subject: 'System Arch', A: 120, fullMark: 150 },
+  { subject: 'Tools', A: 125, fullMark: 150 },
 ];
 
 export const PROJECTS: Project[] = [
   {
-    id: 'neobank',
-    title: 'Syncmeet',
-    description: 'A futuristic banking dashboard with real-time transaction processing and WebGL visualizations.',
-    fullDescription: "Built a high-frequency trading dashboard simulator. The goal was to visualize 10,000+ data points without lagging the main thread. Used Web Workers for data parsing and WebGL for rendering charts. The result is a buttery smooth 60fps experience even on mid-range devices.",
-    tags: ['Next.js', 'TypeScript', 'WebGL', 'PostgreSQL'],
-    link: 'https://github.com/kampit/syncmeet',
-    github: 'https://github.com/kampit/syncmeet',
+    id: 'syncmeet',
+    title: 'SyncMeet',
+    description: 'A serverless P2P video collaboration tool with zero-latency communication.',
+    fullDescription: "Built a serverless 1:1 video collaboration platform using WebRTC and BitTorrent-based signaling, enabling fully client-side communication with secure, zero-latency P2P connections. Developed real-time collaboration tools including an interactive whiteboard, shared notes editor, and integrated rich chat to support productive remote sessions.",
+    tags: ['React JS', 'TypeScript', 'WebRTC', 'Trystero', 'Vite', 'TailwindCSS'],
+    link: 'https://github.com/kampitojha/SyncMeet',
+    github: 'https://github.com/kampitojha/SyncMeet',
     featured: true,
-    color: 'from-blue-500 to-cyan-400',
-    image: '/images/projects/neobank.png',
+    color: 'from-indigo-600 to-cyan-500',
     stats: [
-        { label: "Performance", value: "98/100" },
-        { label: "Transactions", value: "10k/sec" }
+        { label: "P2P Latency", value: "<50ms" },
+        { label: "Architecture", value: "Serverless" }
     ]
   },
   {
-    id: 'ai-nexus',
-    title: 'AI Chat Nexus',
-    description: 'Context-aware LLM wrapper allowing seamless switching between Gemini and GPT models.',
-    fullDescription: "A unified interface for LLMs. I got tired of switching tabs between ChatGPT and Gemini, so I built a unified wrapper that routes prompts based on complexity. Simple queries go to Flash-Lite (cheaper), complex reasoning goes to GPT-4o.",
-    tags: ['React', 'Gemini API', 'Tailwind'],
-    link: 'https://ai-nexus-demo.vercel.app',
-    github: 'https://github.com/kampit/ai-nexus',
+    id: 'os-seedcard',
+    title: 'Seed Card Stepper (OS)',
+    description: 'Developed an inline form validation stepper for high-conversion financial onboarding.',
+    fullDescription: "Developed a Seed Card Stepper with inline form validation for a multi-step Recurring Deposit Account flow. Ensured stepwise data persistence, dynamic progress tracking, and error handling per design specifications to improve user conversion.",
+    tags: ['React.js', 'TypeScript', 'Formik', 'Tailwind CSS'],
+    link: 'https://github.com/pro-set/seed-app',
+    github: 'https://github.com/pro-set/seed-app',
     featured: true,
-    color: 'from-violet-500 to-purple-400',
-    image: '/images/projects/ai-nexus.png',
-    stats: [
-        { label: "Latency", value: "<400ms" },
-        { label: "Users", value: "2.5k+" }
-    ]
-  },
-  {
-    id: 'ecom-headless',
-    title: 'E-com Headless',
-    description: 'High-performance Shopify headless storefront built for extreme SEO and speed.',
-    tags: ['Shopify', 'Remix', 'Redis'],
-    link: 'https://headless-store-demo.netlify.app',
-    github: 'https://github.com/kampit/shopify-remix',
-    featured: false,
     color: 'from-emerald-500 to-teal-400',
-    image: '/images/projects/ecom-headless.png'
   },
   {
-    id: 'devops-cli',
-    title: 'DevOps CLI',
-    description: 'Rust-based CLI tool to automate AWS deployments in seconds.',
-    tags: ['Rust', 'AWS', 'CLI'],
-    link: 'https://crates.io/crates/devops-cli-tool',
-    github: 'https://github.com/kampit/rust-cli',
-    featured: false,
+    id: 'os-account-creation',
+    title: 'Multi-step Account Creation (OS)',
+    description: 'Contributed to a multi-step account creation flow for a financial platform.',
+    fullDescription: "Contributed to setting up a multi-step account creation flow by creating placeholder pages (Details, Terms, Charges, Preview) integrated with a Seed Card Stepper for seamless navigation and consistent UI layout.",
+    tags: ['Next.js', 'React.js', 'TypeScript', 'Tailwind CSS'],
+    link: 'https://github.com/pro-set/seed-app',
+    github: 'https://github.com/pro-set/seed-app',
+    featured: true,
     color: 'from-orange-500 to-red-400',
-    image: '/images/projects/devops-cli.png'
-  },
-  {
-    id: 'portfolio-v1',
-    title: 'Legacy Portfolio',
-    description: 'My previous portfolio built with vanilla JS and GSAP.',
-    tags: ['GSAP', 'HTML/SCSS'],
-    link: 'https://v1.kampit.dev',
-    github: 'https://github.com/kampit/portfolio-v1',
-    featured: false,
-    color: 'from-pink-500 to-rose-400'
   }
 ];
 
